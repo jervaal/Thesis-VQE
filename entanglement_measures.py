@@ -26,8 +26,9 @@ def Multipartite_Negativity(qcircuit : QuantumCircuit, mode='max' ):
     
     qubits_list = qcircuit.qubits
     rho = DensityMatrix(qcircuit)
+    
+    index_list = [qubit._index for qubit in qubits_list]
 
-    index_list = [qubit.index for qubit in qubits_list]
 
     negativity_dict = {}
 
@@ -68,5 +69,3 @@ def GHZ_entanglmenetlike_measure(qcircuit : QuantumCircuit):
     return np.square(np.abs(GHZ_state.inner(state)))
 
 
-
-        
