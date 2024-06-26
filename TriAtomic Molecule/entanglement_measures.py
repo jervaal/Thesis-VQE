@@ -124,14 +124,3 @@ def multipartite_entanglement(circuit : QuantumCircuit,  rho : DensityMatrix, mo
 
 
 
-qc = QuantumCircuit(4)
-qc.h(0)
-qc.cx(0, 1)
-qc.cx(1, 2)
-qc.cx(2, 3)
-
-r = DensityMatrix(qc)
-
-#r.draw(output= '')
-
-print(Multipartite_Negativity(qc))
