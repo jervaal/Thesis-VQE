@@ -63,13 +63,14 @@ def Initialize_VQE_hardware_EfficientSU2(sparse_pauli_hamiltonian, backend_name=
 
     ansatz = EfficientSU2(sparse_pauli_hamiltonian.num_qubits,
                       #su2_gates= ['rz'], #architecture of ibm_brisbane
-                      #entanglement= 'linear' #this is for the parity mapper
+                      entanglement= 'linear',
+                       reps= 4 #this is for the parity mapper
                       ) #try what happens if cz
 
     backend= FakeManilaV2()
 
     target = backend.target
-    pm = generate_preset_pass_manager(target= target, optimization_level= 2)
+    pm = generate_preset_pass_manager(target= target, optimization_level= 3)
 
     ansatz_isa = pm.run(ansatz)
 

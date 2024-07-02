@@ -50,6 +50,8 @@ def Multipartite_Negativity(circuit : QuantumCircuit, mode='max' ):
                 qubit_trace_list =  [k for k in index_list if k not in (qbit_indx1, qbit_indx2)]
                 rho_p = partial_trace(rho, qubit_trace_list)
 
+                rho_p_Ta = rho_p.partial_transpose([0, 1])
+
                 negativity_matrix[ind_i][ind_j] = Bipartite_Negativity(rho_p)
     
     if mode== 'max':
@@ -121,6 +123,4 @@ def multipartite_entanglement(circuit : QuantumCircuit,  rho : DensityMatrix, mo
     
     elif mode== 'total':
         return np.sum(entglmnt_matrix)
-
-
 
