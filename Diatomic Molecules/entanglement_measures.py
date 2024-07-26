@@ -5,7 +5,6 @@ from qiskit.circuit import QuantumCircuit
 
 import itertools
 
-from numba import njit, jit
 
 #@jit
 def Bipartite_Negativity(rho ):
